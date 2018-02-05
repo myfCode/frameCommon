@@ -1,0 +1,307 @@
+﻿<!DOCTYPE HTML>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ieOld ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ieOld ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ieOld ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="zh-CN" class="ie9"> <![endif]-->
+<!--[if IE 10 ]>   <html lang="zh-CN" class="ie10"> <![endif]-->
+<!--[if (gte IE 11)|!(IE)]><!-->
+<html lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>我是input系列</title>
+</head>
+
+<body>
+    <div class="am-body container">
+        <div class="am-pc-gap am-con-form">
+            <div class="am-group am-offset-b0">
+                <div class="am-con-title am-mob-show">
+                    加减输入框
+                </div>
+                <div class="am-con am-card am-price-btn am-all" id="longTouch1">
+                    <div class="col-md-3">
+                        <a class="am-btn am-btnSub"></a>
+                        <span class="am-g">
+                            <a class="am-input-clear"></a>
+                            <input type="num" class="am-g am-input" placeholder="请输入">
+                            <!-- <div class="am-keyboard-input" id="keyborad-input-0" placeholder="请输入金额"></div> -->
+                        </span>
+                        <a class="am-btn am-btnAdd"></a>
+                    </div>
+                    <div class="am-con-text am-pc">&nbsp;%</div>
+                </div>
+            </div>
+            <div class="am-con am-list am-con-btnPrice am-offset-b0">
+            </div>
+            <div class="am-group am-offset-b0">
+                <div class="am-con-title am-mob-show">
+                    请输入登录密码
+                </div>
+                <div class="am-con am-list am-card">
+                    <div class="am-row">
+                        <span class="am-g col-md-8">
+                            <!-- <a class="am-btn am-input-pwd"></a> -->
+                            <a class="am-btn am-input-clear"></a>
+                            <div class="am-keyboard-input" id="keyborad-input-1" placeholder="请输入登录密码"></div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="am-group am-offset-b0">
+                <div class="am-con-title am-mob-show">
+                    请设置交易密码
+                </div>
+                <div class="am-con am-list am-card">
+                    <div class="am-row">
+                        <span class="am-g col-md-8">
+                            <a class="am-btn am-input-pwd"></a>
+                            <a class="am-btn am-input-clear"></a>
+                            <div class="am-keyboard-input" id="keyborad-input-2" placeholder="请输入交易密码"></div>
+                        </span>
+                    </div>
+                    <div class="am-row am-sm">
+                        <span class="am-g">
+                            <a class="am-xs-float-right" id="demoBtnGetValue2">取值</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="am-group am-offset-b0">
+                <div class="am-con-title am-mob-show">
+                    请输入金额
+                </div>
+                <div class="am-con am-list am-card">
+                    <div class="am-row">
+                        <span class="am-g col-md-8">
+                            <a class="am-btn am-input-clear"></a>
+                            <div class="am-keyboard-input" id="keyborad-input-3" placeholder="请输入金额"></div>
+                        </span>
+                    </div>
+                    <div class="am-row am-sm">
+                        <span class="am-g50">
+                            <a id="demoBtnSetValue3">设值</a>
+                        </span>
+                        <span class="am-g50">
+                            <a class="am-xs-float-right" id="demoBtnGetValue3">取值</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="am-group">
+                <div class="am-con-title am-mob-show">
+                    系统输入框
+                </div>
+                <div class="am-con am-list am-card">
+                    <div class="am-row">
+                        <span class="am-g col-md-12">
+                        <a class="am-btn am-input-clear"></a>
+                        <input type="tel" class="am-g am-input" placeholder="我是系统输入框" />
+                        </span>
+                    </div>
+                    <div class="am-row">
+                        <span class="am-g col-md-12">
+                        <a class="am-btn am-input-clear"></a>
+                        <input type="text" class="am-g am-input" placeholder="我是系统输入框" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="am-group">
+                <div class="am-con-title">
+                    标题仅PC可见
+                </div>
+                <div class="am-con am-list am-card">
+                    <div class="am-row">
+                        <span class="am-g am-row-icon am-icon-user"></span>
+                        <span class="am-g col-md-12">
+                            <a class="am-btn am-input-clear"></a>
+                            <input type="text" class="am-g am-input" placeholder="我是系统输入框" />
+                        </span>
+                    </div>
+                    <div class="am-row">
+                        <span class="am-g am-row-icon am-icon-user"></span>
+                        <span class="am-g col-md-12">
+                            <a class="am-btn am-input-clear"></a>
+                            <input type="text" class="am-g am-input" placeholder="我是系统输入框" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="am-group">
+                <div class="am-con-title">
+                    标题仅PC可见
+                </div>
+                <div class="am-con am-list am-card">
+                    <div class="am-row">
+                        <span class="am-g am-row-icon am-icon-user am-pc-show"></span>
+                        <span class="am-g col-md-12">
+                            <a class="am-btn am-input-clear"></a>
+                            <input type="text" class="am-g am-input" placeholder="我是系统输入框" />
+                        </span>
+                    </div>
+                    <div class="am-row">
+                        <span class="am-g am-row-icon am-icon-user am-pc-show"></span>
+                        <span class="am-g col-md-12">
+                            <a class="am-btn am-input-clear"></a>
+                            <input type="text" class="am-g am-input" placeholder="我是系统输入框" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="am-group">
+                <div class="am-con-title"></div>
+                <div class="am-con am-gap am-g-1">
+                    <a class="am-btn am-color-blue" href="javascript:void(0)" id="btnClearPwd1">清除密码1</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/load.js"></script>
+<script>
+$("#keyborad-input-0").on($.touchend, function() {
+    if (!$.touchMoved) {
+        $(this).fnKeyBoard({
+            type: 3,
+            max: 13,
+            onDone: function(val) {
+                $.fnNotice({
+                    msg: val + "&nbsp;完成"
+                });
+            },
+            onCancel: function() {
+                $.fnNotice({
+                    msg: "收起3"
+                });
+            }
+        });
+    }
+});
+
+$("#keyborad-input-1").on($.touchend, function() {
+    if (!$.touchMoved) {
+        $(this).fnKeyBoard({
+            type: 1,
+            min: 4,
+            max: 10,
+            letterUp: false,
+            onChanged: function(val, lastkey) {
+                console.log(val + " / " + lastkey);
+            },
+            onDone: function(val) {
+                $.fnNotice({
+                    msg: val + "&nbsp;完成"
+                });
+            },
+            onCancel: function() {
+                $.fnNotice({
+                    msg: "收起1"
+                });
+            },
+            onOffsetMin: function(min) {
+                $.fnNotice({
+                    msg: "密码不能小于" + min + "位"
+                });
+            },
+            onOffsetMax: function(max) {
+                $.fnNotice({
+                    msg: "密码不能大于" + max + "位"
+                });
+            },
+            onFilter: function(lastkey) {
+                $.fnNotice({
+                    msg: lastkey + "&nbsp;不可用"
+                });
+            }
+        });
+    }
+});
+
+$("#keyborad-input-2").on($.touchend, function() {
+    if (!$.touchMoved) {
+        $(this).fnKeyBoard({
+            type: 0,
+            min: 6,
+            max: 6,
+            onDone: function(val) {
+                $.fnNotice({
+                    msg: val + "&nbsp;完成"
+                });
+            },
+            onCancel: function() {
+                $.fnNotice({
+                    msg: "收起2"
+                });
+            }
+        });
+    }
+});
+
+$("#keyborad-input-3").on($.touchend, function() {
+    if (!$.touchMoved) {
+        $(this).fnKeyBoard({
+            type: 3,
+            max: 13,
+            onDone: function(val) {
+                $.fnNotice({
+                    msg: val + "&nbsp;完成"
+                });
+            },
+            onCancel: function() {
+                $.fnNotice({
+                    msg: "收起3"
+                });
+            }
+        });
+    }
+});
+
+$("#demoBtnGetValue2").on($.touchend, function() {
+    alert($("#keyborad-input-2").fnKeyBoard("getValue"));
+});
+
+$("#demoBtnGetValue3").on($.touchend, function() {
+    alert($("#keyborad-input-3").fnKeyBoard("getValue"));
+});
+
+$("#demoBtnSetValue3").on($.touchend, function() {
+    $("#keyborad-input-3").fnKeyBoard("setValue", 12);
+});
+
+$("#btnClearPwd1").on($.touchend, function() {
+    $("#keyborad-input-1").fnKeyBoard("KBClear");
+});
+
+
+
+$("#longTouch1").fnLongTouch({
+    minVal: 1, //最小值
+    maxVal: 3, //最大值
+    curVal: 2, //默认值
+    stepVal: 0.01 //最小变化值
+});
+
+$.fn.fnLongTouch({
+    onChanged: function(id, val) {
+        console.log(val);
+        if (id == "longTouch1") {
+            $("#keyborad-input-0").fnKeyBoard("setValue", val);
+        }
+    }
+});
+</script>
+
+</html>

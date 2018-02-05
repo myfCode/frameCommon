@@ -1,0 +1,485 @@
+﻿<!DOCTYPE HTML>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ieOld ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ieOld ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ieOld ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="zh-CN" class="ie9"> <![endif]-->
+<!--[if IE 10 ]>   <html lang="zh-CN" class="ie10"> <![endif]-->
+<!--[if (gte IE 11)|!(IE)]><!-->
+<html lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>我是弹窗系列</title>
+</head>
+
+<body>
+    <div class="am-body container am-pc-gap">
+        <div class="am-con-title">
+            关闭弹窗
+        </div>
+        <div class="am-con am-g-1">
+            <a class="am-btn am-color-orange am-fullsize" id="demo-close">close</a>
+        </div>
+        <div class="am-con-title">
+            我是弹窗-alert
+        </div>
+        <div class="am-con am-gap am-g-2">
+            <a class="am-btn am-color-blue" id="demo-alert-1">alert1</a>
+            <a class="am-btn am-color-blue" id="demo-alert-2">alert2</a>
+        </div>
+        <div class="am-con-title">
+            我是弹窗-alert select
+        </div>
+        <div class="am-con am-gap am-g-1">
+            <a class="am-btn am-color-blue" id="demo-alertselect-1">alert select</a>
+        </div>
+        <div class="am-con-title">
+            我是弹窗-confirm
+        </div>
+        <div class="am-con am-gap am-g-2">
+            <a class="am-btn am-color-blue" id="demo-confirm-1">confirm1</a>
+            <a class="am-btn am-color-blue" id="demo-confirm-2">confirm2</a>
+        </div>
+        <div class="am-con-title">
+            我是弹窗-input
+        </div>
+        <div class="am-con am-gap am-g-1">
+            <a class="am-btn am-color-blue" id="demo-input-1">input</a>
+        </div>
+        <div class="am-con-title">
+            我是弹窗-passcode
+        </div>
+        <div class="am-con am-gap am-g-1 am-offset-b0">
+            <a class="am-btn am-color-blue" id="demo-passcode-1">passcode</a>
+        </div>
+        <div class="am-group">
+            <div class="am-con-title am-mob-show">
+                请输入登录密码
+            </div>
+            <div class="am-con am-list am-card">
+                <div class="am-row">
+                    <span class="am-g col-md-8">
+                        <a class="am-btn am-input-pwd"></a>
+                        <a class="am-btn am-input-clear"></a>
+                        <div class="am-keyboard-input" id="keyborad-input-1" placeholder="请输入登录密码"></div>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="am-con-title">
+            我是弹窗-share
+        </div>
+        <div class="am-con am-gap am-g-1">
+            <a class="am-btn am-color-blue" id="demo-share-1">share</a>
+        </div>
+        <div class="am-con-title">
+            我是弹窗-middle
+        </div>
+        <div class="am-con am-gap am-g-1">
+            <a class="am-btn am-color-blue" id="demo-middle-1">middle</a>
+        </div>
+        <div class="am-con-title">
+            我是弹窗-custom
+        </div>
+        <div class="am-con am-gap am-g-2">
+            <a class="am-btn am-color-blue" id="demo-custom-selectCoupon">custom coupon</a>
+            <a class="am-btn am-color-blue" id="demo-custom-selectBank">custom bank</a>
+        </div>
+        <div class="am-con-title">
+            我是弹窗-select
+        </div>
+        <div class="am-con am-gap am-g-2">
+            <a class="am-btn am-color-blue" id="demo-select-1">select1</a>
+            <a class="am-btn am-color-blue" id="demo-select-2">select2</a>
+        </div>
+        <div class="am-con-title">
+            我是弹窗-prompt
+        </div>
+        <div class="am-con am-gap am-g-3">
+            <a class="am-btn am-color-blue" id="demo-prompt-1">prompt1</a>
+            <a class="am-btn am-color-blue" id="demo-prompt-2">prompt2</a>
+            <a class="am-btn am-color-blue" id="demo-prompt-3">prompt3</a>
+        </div>
+    </div>
+</body>
+<script src="js/load.js"></script>
+<script>
+$(function() {
+    // close
+    $("#demo-close").on($.tap, function() {
+        $.fnPopup("destroy");
+    });
+    // alert
+    $("#demo-alert-1").on($.tap, function() {
+        $.fnPopup({
+            type: "alert",
+            msg: "这个我必须要告诉你！",
+            onReady: function() {
+                console.log("ready");
+            },
+            onConfirm: function() {
+                console.log("confirm");
+            }
+        });
+    });
+    $("#demo-alert-2").on($.tap, function() {
+        $.fnPopup({
+            type: "alert",
+            msg: "我的按钮名字变了！",
+            btnConfirmName: "我知道了",
+            onConfirm: function() {
+                $.fnNotice({
+                    msg: "confirm"
+                });
+            }
+        });
+    });
+    // alert select
+    $("#demo-alertselect-1").on($.tap, function() {
+        $.fnPopup({
+            type: "alertselect",
+            msg: "请选择下面的某一项！",
+            content: [{
+                "id": "alertselect-id-0",
+                "btnName": "选项A"
+            }, {
+                "id": "alertselect-id-1",
+                "btnName": "选项B"
+            }],
+            onReady: function() {
+                console.log("ready");
+            },
+            onConfirm: function(val) {
+                console.log(val);
+            },
+            onCancel: function() {
+                console.log("cancel");
+            }
+        });
+    });
+    // confirm
+    $("#demo-confirm-1").on($.tap, function() {
+        $.fnPopup({
+            type: "confirm",
+            msg: "你确认要删除这个吗？",
+            btnConfirmName: '是',
+            btnCancelName: '否',
+            onReady: function() {
+                console.log("ready");
+            },
+            onConfirm: function() {
+                $.fnPopup({
+                    type: "passcode",
+                    msg: "请输入交易密码",
+                    onReady: function(popId) {
+                        console.log("ready");
+                        $("#" + popId).find(".am-forget-pwd").on($.tap, function() {
+                            console.log("forget password");
+                        });
+                    }
+                });
+            },
+            onCancel: function() {
+                console.log("cancel");
+            }
+        });
+    });
+    $("#demo-confirm-2").on($.tap, function() {
+        $.fnPopup({
+            type: "confirm",
+            msg: "你同意合同内容吗？",
+            btnConfirmName: '同意',
+            btnCancelName: '不同意',
+            onConfirm: function() {
+                $.fnNotice({
+                    msg: "confirm"
+                });
+            },
+            onCancel: function() {
+                $.fnNotice({
+                    msg: "cancel"
+                });
+            }
+        });
+    });
+    // input
+    $("#demo-input-1").on($.tap, function() {
+        $.fnPopup({
+            type: "input",
+            msg: "请输入您的身份证号码",
+            content: "姓名：温国超",
+            onReady: function(popId) {
+                console.log("ready");
+                $("#" + popId).find("input").focus();
+            },
+            onConfirm: function(val) {
+                console.log("confirm" + val);
+            },
+            onCancel: function() {
+                console.log("cancel");
+            }
+        });
+    });
+    // passcode
+    $("#demo-passcode-1").on($.tap, function() {
+        $.fnPopup({
+            type: "passcode",
+            msg: "请输入交易密码",
+            onReady: function(popId) {
+                console.log("ready");
+                $("#" + popId).find(".am-forget-pwd").on($.tap, function() {
+                    console.log("forget password");
+                });
+            },
+            onConfirm: function(val) {
+                console.log("confirm" + val);
+            },
+            onCancel: function() {
+                console.log("cancel");
+            }
+        });
+    });
+    // custom
+    $("#demo-custom-selectCoupon").on($.tap, function() {
+        var loadHtml = "<div class='am-con am-list am-offset-b0 list-type-2'>";
+        loadHtml += "<label class='am-row am-multiLine' data-type='radio' data-name='radio1'><span class='am-g10 am-row-icon am-icon-radio'></span><span class='am-g90'><strong class='am-pos-lc'>不使用优惠券</strong></span></label>";
+        loadHtml += "<label class='am-row am-multiLine' data-type='radio' data-name='radio1'><span class='am-g10 am-row-icon am-icon-radio'></span><span class='am-g90'><div class='icon am-color-blue'>免</div><strong>满10000元可用</strong><em>截止日期 2016.01.31</em></span></label>";
+        loadHtml += "<label class='am-row am-multiLine' data-type='radio' data-name='radio1'><span class='am-g10 am-row-icon am-icon-radio'></span><span class='am-g90'><div class='icon am-color-orange'><sub>¥</sub>5</div><strong>满10000元可用</strong><em>截止日期 2016.01.31</em></span></label>";
+        loadHtml += "<label class='am-row am-multiLine' data-type='radio' data-name='radio1'><span class='am-g10 am-row-icon am-icon-radio'></span><span class='am-g90'><div class='icon am-color-orange'><sub>¥</sub>5</div><strong>满10000元可用</strong><em>截止日期 2016.01.31</em></span></label>";
+        loadHtml += "<label class='am-row am-multiLine am-disable' data-type='radio' data-name='radio1'><span class='am-g10 am-row-icon am-icon-radio'></span><span class='am-g90'><div class='icon am-color-orange'><sub>¥</sub>5</div><strong>满10000元可用</strong><em>截止日期 2016.01.31</em></span></label>";
+        loadHtml += "<label class='am-row am-multiLine am-disable' data-type='radio' data-name='radio1'><span class='am-g10 am-row-icon am-icon-radio'></span><span class='am-g90'><div class='icon am-color-red'><sub>¥</sub>5</div><strong>满10000元可用</strong><em>截止日期 2016.01.31</em></span></label>";
+        loadHtml += "<label class='am-row am-multiLine' data-type='radio' data-name='radio1'><span class='am-g10 am-row-icon am-icon-radio'></span><span class='am-g90'><div class='icon am-color-red'><sub>+</sub>0.2<sub>%</sub></div><strong>满10000元可用</strong><em>截止日期 2016.01.31</em></span></label>";
+        loadHtml += "<label class='am-row am-multiLine' data-type='radio' data-name='radio1'><span class='am-g10 am-row-icon am-icon-radio'></span><span class='am-g90'><div class='icon am-color-red'><sub>+</sub>0.2<sub>%</sub></div><strong>满10000元可用</strong><em>截止日期 2016.01.31</em></span></label>";
+        loadHtml += "</div>";
+
+        $.fnPopup({
+            type: "custom",
+            msg: "选择优惠券",
+            class: "inner-bottom-selectCoupon",
+            content: loadHtml,
+            onReady: function(popId) {
+                console.log("ready");
+                $("#" + popId + " label").fnChecked({
+                    onChecked: function(name, state) {
+                        setTimeout(function() {
+                            console.log("coupon:" + state);
+                            $.fnPopup("destroy");
+                        }, 250);
+                    }
+                });
+            },
+            onCancel: function() {
+                console.log("cancel");
+            }
+        });
+    });
+    $("#demo-custom-selectBank").on($.tap, function() {
+        var loadHtml = "<div class='am-con am-list am-offset-b0 list-type-2' id='onlinelist'>";
+        loadHtml += "<label class='am-row am-doubleLine' data-type='radio' data-name='radio1'><span class='am-g am-row-icon am-icon-cash am-icon-36 am-pc-show'></span><span class='am-g'><span class='am-g am-list-left'><p>天玑臻宝</p><p class='am-sm am-color-black1'>可用888,888,888.00元</p></span><span class='am-g am-list-right am-offset-r5'></span></span><span class='am-icon-radio'></span></label>";
+        loadHtml += "<label class='am-row am-doubleLine am-disable' data-type='radio' data-name='radio1'><span class='am-g am-row-icon am-icon-bank-0308 am-icon-36 am-pc-show'></span><span class='am-g'><span class='am-g am-list-left'><p>招商银行<em>(8888)</em>&nbsp;<span class='am-sm'>在线支付</span></p><p class='am-sm am-color-black1'>单笔限额5万，单日限额200万</p></span><span class='am-g am-list-right am-offset-r5'><span class='am-color-red am-sm'>超出单笔限额</span></span></span><span class='am-icon-radio am-on'></span></label>";
+        loadHtml += "<label class='am-row am-doubleLine' data-type='radio' data-name='radio1'><span class='am-g am-row-icon am-icon-bank-0105 am-icon-36 am-pc-show'></span><span class='am-g'><span class='am-g am-list-left'><p>招商银行<em>(1111)</em>&nbsp;<span class='am-sm'>在线支付</span></p><p class='am-sm am-color-black1'>单笔限额5万，单日限额200万</p></span><span class='am-g am-list-right am-offset-r5'></span></span><span class='am-icon-radio am-on'></span></label>";
+        loadHtml += "<label class='am-row am-doubleLine' data-type='radio' data-name='radio1'><span class='am-g am-row-icon am-icon-bank-0301 am-icon-36 am-pc-show'></span><span class='am-g'><span class='am-g am-list-left'><p>招商银行<em>(2222)</em>&nbsp;<span class='am-sm'>在线支付</span></p><p class='am-sm am-color-black1'>单笔限额5万，单日限额200万</p></span><span class='am-g am-list-right am-offset-r5'></span></span><span class='am-icon-radio'></span></label>";
+        loadHtml += "<label class='am-row am-doubleLine' data-type='radio' data-name='radio1'><span class='am-g am-row-icon am-icon-bank-0309 am-icon-36 am-pc-show'></span><span class='am-g'><span class='am-g am-list-left'><p>招商银行<em>(3333)</em>&nbsp;<span class='am-sm'>线下汇款</span><span class='iicon-new'></span></p><p class='am-sm am-color-black1'>建议申购金额超出线上支付限额时使用</p></span><span class='am-g am-list-right am-offset-r5'></span></span><span class='am-icon-radio'></span></label>";
+        loadHtml += "<a class='am-row am-doubleLine' id='offline' href='javascript:void(0)'><span class='am-g am-row-icon am-icon-offline am-icon-36 am-pc-show'></span><span class='am-g'><span class='am-g am-list-left'><p>线下汇款<span class='iicon-new'></span></p><p class='am-sm am-color-black1'>建议申购金额超出线上支付限额时使用</p></span></span></a>";
+        loadHtml += "<a class='am-row am-doubleLine' href='p-form-bankcard-add-s2.html'><span class='am-g am-row-icon am-icon-card am-icon-36 am-pc-show'></span><span class='am-g'><span class='am-g am-list-left'><p>添加银行卡</p></span></span></a>";
+        loadHtml += "</div>";
+        loadHtml += "<div class='am-con am-list am-offset-b0 list-type-2' id='offlinelist'>";
+        loadHtml += "<label class='am-row am-doubleLine' data-type='radio' data-name='radio2'><span class='am-g am-row-icon am-icon-bank-0301 am-icon-36 am-pc-show'></span><span class='am-g'><span class='am-g am-list-left'><p>招商银行<em>(2222)</em></p></span><span class='am-g am-list-right am-offset-r5'></span></span><span class='am-icon-radio'></span></label>";
+        loadHtml += "<label class='am-row am-doubleLine' data-type='radio' data-name='radio2'><span class='am-g am-row-icon am-icon-bank-0309 am-icon-36 am-pc-show'></span><span class='am-g'><span class='am-g am-list-left'><p>招商银行<em>(3333)</em></p></span><span class='am-g am-list-right am-offset-r5'></span></span><span class='am-icon-radio'></span></label>";
+        loadHtml += "<label class='am-row am-doubleLine' data-type='radio' data-name='radio2'><span class='am-g am-row-icon am-icon-bank-0309 am-icon-36 am-pc-show'></span><span class='am-g'><span class='am-g am-list-left'><p>招商银行<em>(3333)</em></p></span><span class='am-g am-list-right am-offset-r5'></span></span><span class='am-icon-radio'></span></label>";
+        loadHtml += "</div>";
+        $.fnPopup({
+            type: "custom",
+            msg: "选择支付方式",
+            class: "inner-bottom-selectBank",
+            content: loadHtml,
+            onReady: function(popId) {
+                $("#" + popId + " label").fnChecked({
+                    onChecked: function(name, state) {
+                        setTimeout(function() {
+                            console.log(name + "/" + state);
+                            $.fnPopup("destroy");
+                        }, 250);
+                    }
+                });
+                $("#offline").on($.tap, function() {
+                    $("#onlinelist").addClass("am-off");
+                    $("#offlinelist").addClass("am-on");
+                    $("#" + popId + " .am-popbtn.am-back").addClass("am-on");
+                    $("#" + popId + " .inner>h6").text("选择线下汇款银行");
+                });
+                $("#" + popId + " .am-popbtn.am-back").on($.tap, function() {
+                    $("#onlinelist").removeClass("am-off");
+                    $("#offlinelist").removeClass("am-on");
+                    $("#" + popId + " .am-popbtn.am-back").removeClass("am-on");
+                    $("#" + popId + " .inner>h6").text("选择支付方式");
+                });
+            }
+        });
+    });
+    // prompt
+    $("#demo-prompt-1").on($.tap, function() {
+        var loadHtml = "<div class='am-con am-list'><div class='am-row'><span class='am-g am-row-title'>只有列表内容</span></div><div class='am-row'><span class='am-g am-row-title'>只有列表内容</span></div><div class='am-row'><span class='am-g am-row-title'>只有列表内容</span></div><div class='am-row'><span class='am-g am-row-title'>只有列表内容</span></div><div class='am-row'><span class='am-g am-row-title'>只有列表内容</span></div><div class='am-row'><span class='am-g am-row-title'>只有列表内容</span></div><div class='am-row'><span class='am-g am-row-title'>只有列表内容</span></div><div class='am-row'><span class='am-g am-row-title'>只有列表内容</span></div><div class='am-row'><span class='am-g am-row-title'>只有列表内容</span></div></div>";
+        $.fnPopup({
+            type: "prompt",
+            msg: "这里是标题",
+            btnConfirmName: "我知道了",
+            content: loadHtml,
+            onReady: function(popId) {
+                console.log("ready");
+                $("#" + popId).find(".prompt-inner .am-row").on($.tap, function() {
+                    console.log($(this).index());
+                });
+            },
+            onConfirm: function() {
+                console.log("confirm");
+            },
+            onCancel: function() {
+                console.log("cancel");
+            }
+        });
+    });
+    $("#demo-prompt-2").on($.tap, function() {
+        var loadHtml = "<div class='inner-editor'><p><strong><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>一、<span style='font-weight:normal;font-stretch:normal;font-size:9px;font-family:&#39;Times New Roman&#39;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></strong><strong><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>关于不可抗力</span></strong></p><p><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>由于地震、台风、水灾、战争、罢工以及其他不能预见并且对其发生和后果不能防止或避免的不可抗力事件,致使直接影响合同的履行或者不能按约定的条件履行时，致使直接影响合同的履行或者不能按约定的条件履行时, 遇有上述不可抗力事故的一方应立即将事故情况传真或其他电子邮件方式通知对方,并应在十五天内, 提供事件详情及合同不能履行或者需要延期履行、部分履行的理由的有效证明文件, 此项证明文件应由事件发生地区的公证机构出具。按事故对履行合同影响的程度, 由各方协商决定是否解除合同、或者部分免除履行合同的责任、或者延期履行合同。</span></p><p><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>&nbsp;</span></p><p><strong><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>二、<span style='font-weight:normal;font-stretch:normal;font-size:9px;font-family:&#39;Times New Roman&#39;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></strong><strong><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>争议的解决方式</span></strong></p><p><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>因履行本合同所发生的或与本合同有关的一切争议，双方应通过协商解决。若协商不成，双方一致同意将争议提交甲方所在地有管辖权的人民法院提起诉讼。</span></p><p><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>&nbsp;</span></p><p><strong><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>三、<span style='font-weight:normal;font-stretch:normal;font-size:9px;font-family:&#39;Times New Roman&#39;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></strong><strong><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>保密责任</span></strong></p><p><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>甲方为履行本合同提供给乙方的业务需求、数据、功能说明和系统安全资料包含有对甲方有商业价值的信息。因此，乙方知道这些资料和资料中包含的内容与甲方的利益相关，是甲方的商业秘密，乙方应承担这些资料的保密义务，将其完全只用于系统实施的需要，在未经甲方书面同意的情况下不得以任何方式披露或提供给第三方使用该信息和资料。如甲方同意乙方将资料提供给第三方，则乙方必须要求该第三方承担保密义务。如乙方违反上述义务，则应赔偿甲方出此而遭受的一切损失。</span></p><p><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>乙方不得利用所有从甲方获得的信息和资料从事任何商业活动。</span></p><p><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>不论本协议是否变更、解除、终止，本条款的约定长期有效。如乙方违反本条规定，应向甲方支付相当于合同价款的违约金。</span></p><p><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>&nbsp;</span></p><p><strong><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>四、<span style='font-weight:normal;font-stretch:normal;font-size:9px;font-family:&#39;Times New Roman&#39;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></strong><strong><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>违约责任</span></strong></p><p style='margin-left:28px;text-indent:28px'><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>乙方如有违反本协议或其附件条款规定的义务的，且甲方接受部分服务的，乙方应向甲方按未被接受的功能占总开发工作量的比例退还服务价款，并支付相当于合同价款【10%】的违约金。</span><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>如乙方未能在甲方要求的改进时间内提交合格服务，甲方有权解除本合同，并要求乙方返还全部已支付款项及支付相当于合同价款的违约金。如因乙方单方面的原因导致乙方未能在【双方约定的上线日期】之前完成系统上线，每逾期一日，甲方有权收取合同价款的【万分之五】作为违约金。逾期达到20日，甲方有权解除本合同，并要求乙方返还全部已支付款项及支付相当于合同价款的违约金。</span></p><p style='margin-left:28px;text-indent:28px'><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>甲方如果没有在本协议规定的期限内向乙方支付本协议项下其已提供合格服务所对应的款项，每逾期一日，应当向乙方额外支付逾期未支付款项的万分之五作为违约金。</span></p><p style='text-indent:28px'><span style='font-size:13px;font-family:&#39;微软雅黑&#39;,sans-serif'>&nbsp;</span></p><p><strong><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>五、<span style='font-weight:normal;font-stretch:normal;font-size:9px;font-family:&#39;Times New Roman&#39;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></strong><strong><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>协议终止</span></strong></p><p><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-size:16px;font-family:&#39;微软雅黑&#39;,sans-serif'>如果乙方违反本协议或其附件约定，甲方有权向乙方发出立即纠正违约行为的通知，若乙方在收到该等通知后7个工作日内仍没有完全纠正违约行为的，甲方有权立即单方面解除本协议，并且保留按照本协议第六条向乙方追究违约责任的权利。</span></p><br><table width='100%'><thead><tr><th>功能</th><th>IE 8</th><th>IE 9</th></tr></thead><tbody><tr><th><code>border-radius</code></th><td><span></span>NO</td><td><span></span>YES</td></tr><tr><th><code>box-shadow</code></th><td><span></span>NO</td><td><span></span>YES</td></tr><tr><th><code>transform</code></th><td><span></span>NO</td><td><span></span>YES（<code>-ms</code> 前缀）</td></tr><tr><th><code>Flex Box</code></th><td colspan='2'><span></span>NO</td></tr><tr><th><code>transition</code></th><td colspan='2'><span></span>NO</td></tr><tr><th><code>placeholder</code></th><td colspan='2'><span></span>NO</td></tr></tbody></table><style>table *{ font-size:16px;}</style></div>";
+        $.fnPopup({
+            type: "prompt",
+            msg: "合同详情",
+            btnCancelName: '',
+            content: loadHtml,
+            onConfirm: function() {
+                $.fnNotice({
+                    msg: "confirm"
+                });
+            }
+        });
+    });
+    $("#demo-prompt-3").on($.tap, function() {
+        var loadHtml = "<table class='am-table am-no-border am-xs'><tr><td rowspan='3' align='center' style='min-width:5rem;'>转让金额</td><td rowspan='3'>=</td><td align='center'> ( 投资金额 * 转让份额 / 投资份额 ) * ( 1 + 产品原期限 * 产品原收益率 / 365 )</td></tr><tr><td class='am-offset-t0 am-offset-b0'><hr style='margin:0'></td></tr><tr><td>1 + 剩余天数 * 转让利率 / 365</td></tr><tr><td rowspan='3' align='center'>888,888.00</td><td rowspan='3' align='center'>=</td><td align='center'>( 888,888.00 * 888,888.00 / 888,888.00 ) * (1 + 888,888.00 * 30% / 365)</td></tr><tr><td class='am-offset-t0 am-offset-b0'><hr style='margin:0'></td></tr><tr><td align='center'>1 + 888,888.00 * 30% / 365</td></tr></table>";
+        $.fnPopup({
+            type: "prompt",
+            msg: "这里是标题",
+            btnConfirmName: "我知道了",
+            content: loadHtml,
+            onConfirm: function() {
+                $.fnNotice({
+                    msg: "confirm"
+                });
+                return false; //不关闭弹窗，直接显示提示
+            }
+        });
+    });
+    // select
+    $("#demo-select-1").on($.tap, function() {
+        $.fnPopup({
+            type: "select",
+            msg: "请确认你的选择！",
+            content: [{
+                "id": "select-id-0",
+                "btnName": "我是按钮A"
+            }, {
+                "id": "select-id-1",
+                "btnName": "我是按钮B"
+            }, {
+                "id": "select-id-2",
+                "btnName": "我是按钮C"
+            }],
+            onReady: function() {
+                console.log("ready");
+            },
+            onConfirm: function(val) {
+                console.dir(val);
+            },
+            onCancel: function() {
+                console.log("cancel");
+            }
+        });
+    });
+    $("#demo-select-2").on($.tap, function() {
+        $.fnPopup({
+            type: "select",
+            content: [{
+                "id": "select-id-0",
+                "btnName": "查看合同",
+                "btnColor": "am-color-blue"
+            }, {
+                "id": "select-id-1",
+                "btnName": "查看合同",
+                "btnColor": "am-color-orange"
+            }, {
+                "id": "select-id-2",
+                "btnName": "查看合同",
+                "btnColor": "am-color-red"
+            }, {
+                "id": "select-id-3",
+                "btnName": "查看合同",
+                "btnColor": "am-color-green"
+            }, {
+                "id": "select-id-4",
+                "btnName": "查看协议"
+            }],
+            onConfirm: function(val) {
+                $.fnNotice({
+                    msg: JSON.stringify(val)
+                });
+            }
+        });
+    });
+    // share
+    $("#demo-share-1").on($.tap, function() {
+        $.fnPopup({
+            type: "share",
+            content: [1, 1, 0, 0],
+            onReady: function(popId) {
+                $("#" + popId).find(".inner .code span").prepend("<canvas width='160px' height='160px' style='background-color:#eee'></canvas>");
+            },
+            onConfirm: function(val) {
+                console.log(val);
+            },
+            onCancel: function() {
+                console.log("cancel");
+            }
+        });
+    });
+    // middle
+    $("#demo-middle-1").on($.tap, function() {
+        var loadHtml = "<img src='/images/mob/help/20170209tips1.png'>";
+        $.fnPopup({
+            type: "middle",
+            class: "inner-20170209",
+            content: loadHtml,
+            onReady: function(popId) {
+                console.log("ready");
+            },
+            onCancel: function() {
+                console.log("cancel");
+            }
+        });
+    });
+
+    $("#keyborad-input-1").on($.touchend, function() {
+        if (!$.touchMoved) {
+            $(this).fnKeyBoard({
+                type: 1,
+                min: 4,
+                max: 10,
+                letterUp: false
+            });
+        }
+    });
+
+});
+</script>
+
+</html>

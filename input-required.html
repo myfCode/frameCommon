@@ -1,0 +1,126 @@
+﻿<!DOCTYPE HTML>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ieOld ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ieOld ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ieOld ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="zh-CN" class="ie9"> <![endif]-->
+<!--[if IE 10 ]>   <html lang="zh-CN" class="ie10"> <![endif]-->
+<!--[if (gte IE 11)|!(IE)]><!-->
+<html lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>我是input系列</title>
+</head>
+
+<body>
+    <div class="am-body container">
+        <div class="am-pc-gap am-con-form">
+            <div class="am-group" data-form="form1">
+                <div class="am-con-title">
+                    标题仅PC可见
+                </div>
+                <div class="am-con am-list am-card">
+                    <div class="am-row">
+                        <span class="am-g am-row-icon am-icon-user am-pc-show"></span>
+                        <span class="am-g col-md-12">
+                    <a class="am-btn am-input-pwd"></a>
+                    <a class="am-btn am-input-clear"></a>
+                    <input type="password" class="am-g am-input" placeholder="1密码必填" required="required" id="demoInput1" />
+                        </span>
+                    </div>
+                    <div class="am-row">
+                        <span class="am-g am-row-icon am-icon-user am-pc-show"></span>
+                        <span class="am-g col-md-12">
+                    <a class="am-btn am-input-clear"></a>
+                    <input type="text" class="am-g am-input" placeholder="2我也必填" required="required" id="demoInput2" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="am-group">
+                <div class="am-con-title"></div>
+                <div class="am-con am-gap am-g-1">
+                    <a class="am-btn am-color-blue" data-form="form1-btn" href="javascript:void(0)">提交按钮</a>
+                </div>
+            </div>
+        </div>
+        <div class="am-pc-gap am-con-form">
+            <div class="am-group" data-form="form2">
+                <div class="am-con-title">
+                    标题仅PC可见
+                </div>
+                <div class="am-con am-list am-card">
+                    <div class="am-row">
+                        <span class="am-g am-row-icon am-icon-user am-pc-show"></span>
+                        <span class="am-g col-md-12">
+                    <a class="am-btn am-input-pwd"></a>
+                    <a class="am-btn am-input-clear"></a>
+                    <input type="password" class="am-g am-input" placeholder="1密码必填" required="required" />
+                        </span>
+                    </div>
+                    <div class="am-row">
+                        <span class="am-g am-row-icon am-icon-user am-pc-show"></span>
+                        <span class="am-g col-md-12">
+                    <a class="am-btn am-input-clear"></a>
+                    <input type="text" class="am-g am-input" placeholder="2我也必填" required="required" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="am-group">
+                <div class="am-con-title"></div>
+                <div class="am-con am-gap am-g-1">
+                    <a class="am-btn am-color-blue" data-form="form2-btn" href="javascript:void(0)">提交按钮</a>
+                </div>
+            </div>
+        </div>
+        <div class="am-con-desc">
+            <strong>控件说明：</strong>
+            <br>
+            <ol class="ol">
+                <li>控件用于验证表单内必填项填写情况，设置按钮状态;</li>
+                <li>每页可以有多组表单验证，一般用于多步骤切换使用场景;</li>
+                <li>必填项仅验证是否空值，不验证其格式，非空则通过;</li>
+                <li>给需要的验证项input，设置required="required"属性;</li>
+                <li>
+                    一页内只有一组form时:
+                    <ul class="ul">
+                        <li>给验证项的共同父级，设置data-form="form"属性;
+                            <br>(或省略，控件会自动添加默认值: form)</li>
+                        <li>给对应btn，设置data-form="form-btn"属性;
+                            <br>(此项不可省略)</li>
+                    </ul>
+                </li>
+                <li>一页内有多组form时:
+                    <ul class="ul">
+                        <li>请为data-form设置不同的值，如form1,form2...</li>
+                        <li>对应的btn，设置data-form值为form1-btn,form2-btn...</li>
+                    </ul>
+                </li>
+                <li>最后，根据btn是否有am-disable样式执行格式验证及提交</li>
+            </ol>
+        </div>
+    </div>
+</body>
+<script src="js/load.js"></script>
+<script>
+$.fn.fnInput({
+    onClear: function(id) {
+        console.log(id+":do someing");
+    }
+});
+</script>
+
+</html>

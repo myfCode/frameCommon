@@ -1,0 +1,98 @@
+﻿<!DOCTYPE HTML>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ieOld ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ieOld ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ieOld ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="zh-CN" class="ie9"> <![endif]-->
+<!--[if IE 10 ]>   <html lang="zh-CN" class="ie10"> <![endif]-->
+<!--[if (gte IE 11)|!(IE)]><!-->
+<html lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>我是验证码倒数</title>
+</head>
+
+<body>
+    <div class="am-body container">
+        <div class="col-md-8 col-md-push-8 am-con-form am-all">
+            <div class="am-con-title">
+                我是验证码倒数
+            </div>
+            <div class="am-group am-no-border">
+                <div class="am-g am-con am-list am-card">
+                    <div class="am-row form-verify-code">
+                        <span class="am-g am-row-icon am-icon-code"></span>
+                        <span class="am-g">
+                    <span class="am-g am-list-left">
+                        <a class="am-input-clear"></a>
+                        <input type="text" class="am-g am-input" placeholder="请输入短信验证码">
+                    </span>
+                        <span class="am-g am-list-right">
+                        <a class="am-btn am-color-blue am-btn-border am-btnVerifyCode" id="btnVerifyCode1"></a>
+                    </span>
+                        </span>
+                    </div>
+                    <div class="am-row form-verify-code">
+                        <span class="am-g am-row-icon am-icon-code"></span>
+                        <span class="am-g">
+                    <span class="am-g am-list-left">
+                        <a class="am-input-clear"></a>
+                        <input type="text" class="am-g am-input" placeholder="请输入短信验证码">
+                    </span>
+                        <span class="am-g am-list-right">
+                        <a class="am-btn am-color-blue am-btn-border am-btnVerifyCode" id="btnVerifyCode2"></a>
+                    </span>
+                        </span>
+                    </div>
+                    <div class="am-row form-verify-code">
+                        <span class="am-g am-row-icon am-icon-code"></span>
+                        <span class="am-g">
+                    <span class="am-g am-list-left">
+                        <a class="am-input-clear"></a>
+                        <input type="text" class="am-g am-input" placeholder="请输入短信验证码">
+                    </span>
+                        <span class="am-g am-list-right">
+                        <a class="am-btn am-color-blue am-btn-border am-btnVerifyCode" id="btnVerifyCode3"></a>
+                    </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="am-con am-gap am-g-1">
+                <a class="am-btn am-color-blue" id="btnVerifyClear">清除上一个</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/load.js"></script>
+<script>
+$(".am-btnVerifyCode").on($.touchend, function() {
+    $(this).fnBtnVerifyCode();
+});
+
+$.fn.fnBtnVerifyCode({
+    onComplete: function(id) {
+        $.fnNotice({
+            msg: id+":complete"
+        });
+    }
+});
+
+$("#btnVerifyClear").on($.touchend, function() {
+    $("#btnVerifyCode3").fnBtnVerifyCode("clear");
+});
+</script>
+
+</html>
